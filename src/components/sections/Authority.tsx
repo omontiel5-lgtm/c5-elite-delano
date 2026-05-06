@@ -1,0 +1,116 @@
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { AUTHORITY_NUMBERS, MEDIA_RECOGNITION } from '@/lib/constants';
+
+const ICONS_PEOPLE = [
+  { name: 'Don Francisco', desc: 'Leyenda de la TV en español' },
+  { name: 'Emilio Estefan Jr.', desc: 'Productor multi-Grammy' },
+  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión' },
+  { name: 'Margarita Pasos', desc: 'Coach motivacional' },
+  { name: 'Maickel Melamed', desc: 'Ícono inspiracional' },
+];
+
+export function Authority() {
+  return (
+    <section className="bg-white section-padding">
+      <div className="container-c5">
+        <SectionHeading
+          eyebrow="La autoridad detrás del nombre"
+          title="Somos la mesa institucional latina de Miami real estate."
+          subtitle="Cuando lo decimos nosotros, es marketing. Cuando lo dicen Univisión, Telemundo y la Alcaldía de Doral, es editorial."
+        />
+
+        {/* Numbers grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-espresso-800/10 border border-espresso-800/10 mb-20">
+          {AUTHORITY_NUMBERS.map((n) => (
+            <div
+              key={n.label}
+              className="bg-white p-8 lg:p-10 text-center"
+            >
+              <p className="font-serif text-4xl lg:text-5xl xl:text-6xl text-champagne-600 mb-3 leading-none">
+                {n.value}
+              </p>
+              <p className="text-sm text-espresso-700/80 leading-snug text-balance">
+                {n.label}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Media recognition */}
+        <div className="text-center mb-20">
+          <p className="eyebrow mb-8">Reconocidos por</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+            {MEDIA_RECOGNITION.map((m) => (
+              <span
+                key={m}
+                className="font-serif text-lg lg:text-xl text-espresso-800/70 tracking-wide"
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Iconic people grid */}
+        <div className="mb-20">
+          <p className="eyebrow text-center mb-12">Íconos que validan a C5</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {ICONS_PEOPLE.map((p) => (
+              <div key={p.name} className="text-center">
+                <div className="aspect-square bg-sand-100 mb-4 relative overflow-hidden grain">
+                  {/* Equipo: subir foto en /public/images/icons/[slug].jpg */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-sand-300 text-xs uppercase tracking-widest text-center px-2">
+                      Foto
+                    </span>
+                  </div>
+                </div>
+                <h4 className="font-serif text-lg text-espresso-800 mb-1 leading-tight">
+                  {p.name}
+                </h4>
+                <p className="text-xs text-espresso-700/70 uppercase tracking-wide">
+                  {p.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Doral institutional recognition */}
+        <div className="bg-espresso-800 text-sand-50 p-12 lg:p-16 grain">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="aspect-[4/3] bg-espresso-700 relative">
+              <div className="absolute inset-0 flex items-center justify-center text-sand-50/40 text-xs uppercase tracking-widest text-center px-6">
+                Foto: Mayor Christi Fraga entregando
+                <br />
+                el Congratulatory Certificate
+              </div>
+            </div>
+            <div>
+              <p className="eyebrow text-champagne-400 mb-4">Reconocimiento institucional</p>
+              <h3 className="font-serif text-3xl lg:text-4xl text-sand-50 leading-tight mb-6 text-balance">
+                Reconocidos por la Alcaldía de Doral.
+              </h3>
+              <p className="text-sand-100/80 leading-relaxed">
+                En abril 2024, la Alcaldesa Christi Fraga entregó un{' '}
+                <em>Congratulatory Certificate</em> de la Ciudad de Doral a Orlando y
+                Daniel Montiel por su impacto en la comunidad de emprendedores latinos
+                en el sur de Florida.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Editorial closing */}
+        <div className="text-center max-w-3xl mx-auto mt-20">
+          <p className="font-serif text-3xl lg:text-4xl text-espresso-800 italic leading-tight text-balance mb-3">
+            &ldquo;No vamos a sus eventos. Ellos vienen al nuestro.&rdquo;
+          </p>
+          <p className="text-sm text-espresso-700/70 italic">
+            Esa es la diferencia entre un broker y una mesa institucional.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
