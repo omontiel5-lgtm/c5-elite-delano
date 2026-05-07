@@ -31,7 +31,7 @@ export function Leadership() {
                 </h3>
                 <p className="eyebrow mb-6">{member.role}</p>
                 <ul className="space-y-3">
-                  {member.bullets.map((b) => (
+                  {member.bullets?.map((b) => (
                     <li key={b} className="flex gap-3 text-espresso-700">
                       <span className="text-champagne-500 mt-1.5 flex-shrink-0">•</span>
                       <span className="leading-relaxed">{b}</span>
