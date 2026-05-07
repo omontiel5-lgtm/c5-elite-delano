@@ -86,7 +86,7 @@ export function Editorial() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="aspect-[4/3] bg-espresso-700 relative overflow-hidden">
               <img
-                src="/images/doral-mayor.jpg"
+                src="/images/mayor-fraga-certificado.png"
                 alt="Mayor Christi Fraga entregando el Congratulatory Certificate de la City of Doral a Orlando y Daniel Montiel"
                 className="absolute inset-0 w-full h-full object-cover"
               />

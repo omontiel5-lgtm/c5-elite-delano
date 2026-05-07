@@ -11,6 +11,15 @@ export function Speakers() {
           subtitle="Retiro Inmobiliario es el evento de bienes raíces en español más grande del mundo. +1,500 inversionistas hispanos por edición. Lo organizan Orlando y Daniel Montiel."
         />
 
+        {/* Banner: foto del evento con coaches */}
+        <div className="aspect-[16/7] bg-sand-100 relative overflow-hidden grain mt-12 max-w-6xl mx-auto">
+          <img
+            src="/images/banner-retiro-coaches-2026.jpg"
+            alt="Coaches y comunidad Retiro Inmobiliario 2026"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
         {/* Industria de Miami real estate */}
         <div className="mt-16">
           <h3 className="font-serif text-2xl lg:text-3xl text-espresso-800 mb-8 text-center">

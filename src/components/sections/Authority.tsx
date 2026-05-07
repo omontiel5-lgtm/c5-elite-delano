@@ -1,11 +1,11 @@
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const ICONS_PEOPLE = [
-  { name: 'Don Francisco', desc: 'Leyenda de la TV en español', src: '/images/don%20francisco.png' },
-  { name: 'Emilio Estefan Jr.', desc: 'Productor multi-Grammy', src: '/images/emilio%20stefan.png' },
-  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión', src: '/images/ignacio-meyer.jpg' },
-  { name: 'Margarita Pasos', desc: 'Coach motivacional', src: '/images/margarita-pasos.jpg' },
-  { name: 'Maickel Melamed', desc: 'Ícono inspiracional', src: '' },
+  { name: 'Don Francisco', desc: 'Leyenda de la TV en español', src: '/images/speaker-don-francisco.png' },
+  { name: 'Emilio Estefan Jr.', desc: 'Productor multi-Grammy', src: '/images/speaker-emilio-estefan.png' },
+  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión', src: '/images/speaker-ignacio-meyer.png' },
+  { name: 'Margarita Pasos', desc: 'Coach motivacional', src: '/images/speaker-margarita-pasos.png' },
+  { name: 'Ismael Cala', desc: 'Periodista · ex-CNN', src: '/images/speaker-ismael-cala.png' },
 ];
 
 export function Authority() {
@@ -72,7 +72,7 @@ export function Authority() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="aspect-[4/3] bg-espresso-700 relative overflow-hidden">
               <img
-                src="/images/doral-mayor.jpg"
+                src="/images/mayor-fraga-certificado.png"
                 alt="Mayor Christi Fraga entregando Congratulatory Certificate a Orlando y Daniel Montiel"
                 className="absolute inset-0 w-full h-full object-cover"
               />
