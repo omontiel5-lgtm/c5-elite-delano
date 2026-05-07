@@ -81,29 +81,41 @@ export function Editorial() {
           ))}
         </div>
 
-        {/* Doral institutional recognition */}
-        <div className="bg-espresso-800 text-sand-50 p-12 lg:p-16 grain mt-20 max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="aspect-[4/3] bg-espresso-700 relative overflow-hidden">
+        {/* Doral institutional recognition — 2 fotos arriba, copy abajo */}
+        <div className="mt-20 max-w-6xl mx-auto">
+          <p className="eyebrow text-center mb-6">Reconocimiento institucional</p>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            <div className="aspect-[4/3] bg-sand-100 relative overflow-hidden">
               <img
-                src="/images/mayor-fraga-certificado.png"
-                alt="Mayor Christi Fraga entregando el Congratulatory Certificate de la City of Doral a Orlando y Daniel Montiel"
+                src="/images/mayor-fraga-ceremonia.jpg"
+                alt="Mayor Christi Fraga entregando el Congratulatory Certificate a Orlando y Daniel Montiel en el evento Retiro Inmobiliario, abril 2024"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
-            <div>
-              <p className="eyebrow text-champagne-400 mb-4">Reconocimiento institucional</p>
-              <h3 className="font-serif text-3xl lg:text-4xl text-sand-50 leading-tight mb-6 text-balance">
-                La Alcaldía de Doral subió al escenario para reconocernos.
-              </h3>
-              <p className="text-sand-100/80 leading-relaxed">
-                En abril de 2024, la Alcaldesa Christi Fraga llegó por sorpresa a una edición de Retiro
-                Inmobiliario y entregó un <em>Congratulatory Certificate</em> de la Ciudad de Doral a
-                Orlando y Daniel Montiel por su impacto en la comunidad de emprendedores latinos del sur
-                de Florida.
-              </p>
+            <div className="aspect-[4/3] bg-sand-100 relative overflow-hidden flex items-center justify-center p-4">
+              <img
+                src="/images/mayor-fraga-certificado.png"
+                alt="Congratulatory Certificate oficial enmarcado de la City of Doral, Florida"
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
           </div>
+
+          <p className="text-sm text-espresso-700/70 italic text-center mb-8 max-w-2xl mx-auto">
+            Mayor Christi Fraga entregando el Congratulatory Certificate a Orlando y Daniel Montiel
+            en el evento Retiro Inmobiliario, abril 2024.
+          </p>
+
+          <h3 className="font-serif text-3xl lg:text-4xl text-espresso-800 leading-tight mb-4 text-balance text-center max-w-3xl mx-auto">
+            La Alcaldía de Doral subió al escenario para reconocernos.
+          </h3>
+          <p className="text-espresso-700/80 leading-relaxed text-center max-w-3xl mx-auto">
+            En abril de 2024, la Alcaldesa Christi Fraga llegó por sorpresa a una edición de Retiro
+            Inmobiliario y entregó un <em>Congratulatory Certificate</em> de la Ciudad de Doral a
+            Orlando y Daniel Montiel por su impacto en la comunidad de emprendedores latinos del sur
+            de Florida.
+          </p>
         </div>
       </div>
     </section>
