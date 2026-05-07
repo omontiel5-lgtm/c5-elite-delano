@@ -31,7 +31,7 @@ export function Advisors() {
                 <img
                   src={advisor.imageSrc}
                   alt={advisor.imageAlt}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                 />
               </div>
 
