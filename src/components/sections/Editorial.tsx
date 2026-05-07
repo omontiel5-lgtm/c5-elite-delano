@@ -1,4 +1,7 @@
+'use client';
+
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { useLightbox } from '@/components/providers/LightboxProvider';
 
 type EditorialClip = {
   outlet: string;
@@ -21,19 +24,21 @@ const EDITORIAL_CLIPS: EditorialClip[] = [
     outlet: 'Telemundo Hoy Día',
     hook: '"De vender ollas a millonarios"',
     description:
-      'El origen de los hermanos Montiel narrado en horario AM nacional. Reemplazar URL del reel con el embed real.',
-    embedUrl: 'https://www.instagram.com/p/PLACEHOLDER_TELEMUNDO/embed',
+      'El origen de los hermanos Montiel narrado en horario AM nacional.',
+    embedUrl: 'https://www.instagram.com/p/C8pytu5KGLr/embed',
   },
   {
     outlet: 'Imagen Miami · Most Influential Men',
     hook: '"Entre los 7 hombres más influyentes de Miami"',
     description:
-      'Daniel y Orlando Montiel reconocidos junto a Emilio Estefan Jr., Walter Kolm e Ignacio Meyer. Reemplazar URL con el post oficial.',
-    embedUrl: 'https://www.instagram.com/p/PLACEHOLDER_IMAGEN/embed',
+      'Daniel y Orlando Montiel reconocidos junto a Emilio Estefan Jr., Walter Kolm e Ignacio Meyer.',
+    embedUrl: 'https://www.instagram.com/p/C1DBwalOFFp/embed',
   },
 ];
 
 export function Editorial() {
+  const openLightbox = useLightbox();
+
   return (
     <section className="bg-white section-padding">
       <div className="container-c5">
@@ -86,20 +91,40 @@ export function Editorial() {
           <p className="eyebrow text-center mb-6">Reconocimiento institucional</p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <div className="aspect-[4/3] bg-sand-100 relative overflow-hidden">
+            <button
+              type="button"
+              onClick={() =>
+                openLightbox(
+                  '/images/mayor-fraga-ceremonia.jpg',
+                  'Mayor Christi Fraga entregando el Congratulatory Certificate a Orlando y Daniel Montiel en el evento Retiro Inmobiliario, abril 2024'
+                )
+              }
+              aria-label="Ampliar foto de la ceremonia con Mayor Fraga"
+              className="aspect-[4/3] bg-sand-100 relative overflow-hidden block w-full cursor-zoom-in group"
+            >
               <img
                 src="/images/mayor-fraga-ceremonia.jpg"
                 alt="Mayor Christi Fraga entregando el Congratulatory Certificate a Orlando y Daniel Montiel en el evento Retiro Inmobiliario, abril 2024"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
               />
-            </div>
-            <div className="aspect-[4/3] bg-sand-100 relative overflow-hidden flex items-center justify-center p-4">
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                openLightbox(
+                  '/images/mayor-fraga-certificado.png',
+                  'Congratulatory Certificate oficial enmarcado de la City of Doral, Florida'
+                )
+              }
+              aria-label="Ampliar Congratulatory Certificate"
+              className="aspect-[4/3] bg-sand-100 relative overflow-hidden flex items-center justify-center p-4 block w-full cursor-zoom-in group"
+            >
               <img
                 src="/images/mayor-fraga-certificado.png"
                 alt="Congratulatory Certificate oficial enmarcado de la City of Doral, Florida"
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain transition-transform group-hover:scale-105"
               />
-            </div>
+            </button>
           </div>
 
           <p className="text-sm text-espresso-700/70 italic text-center mb-8 max-w-2xl mx-auto">

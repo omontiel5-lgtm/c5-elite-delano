@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import { ModalProvider } from '@/components/providers/ModalProvider';
+import { LightboxProvider } from '@/components/providers/LightboxProvider';
 import './globals.css';
 
 const inter = Inter({
@@ -51,7 +52,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
       <body className="min-h-screen">
-        <ModalProvider>{children}</ModalProvider>
+        <LightboxProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </LightboxProvider>
       </body>
     </html>
   );

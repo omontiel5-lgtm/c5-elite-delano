@@ -1,7 +1,43 @@
+'use client';
+
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { INDUSTRY_SPEAKERS, CULTURE_SPEAKERS } from '@/lib/team';
+import { useLightbox } from '@/components/providers/LightboxProvider';
+import { INDUSTRY_SPEAKERS, CULTURE_SPEAKERS, type Speaker } from '@/lib/team';
+
+function SpeakerCard({ s }: { s: Speaker }) {
+  const openLightbox = useLightbox();
+  const hasImage = Boolean(s.imageSrc);
+
+  return (
+    <article className="bg-white border border-espresso-800/10 p-5 flex flex-col">
+      <button
+        type="button"
+        onClick={() => hasImage && openLightbox(s.imageSrc, s.imageAlt)}
+        disabled={!hasImage}
+        aria-label={hasImage ? `Ampliar foto de ${s.name}` : `Foto pendiente de ${s.name}`}
+        className="aspect-[4/5] bg-sand-100 mb-4 relative overflow-hidden block w-full group cursor-zoom-in disabled:cursor-default"
+      >
+        {hasImage ? (
+          <img
+            src={s.imageSrc}
+            alt={s.imageAlt}
+            className="absolute inset-0 w-full h-full object-contain transition-transform group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest text-center px-2">
+            Foto pendiente
+          </div>
+        )}
+      </button>
+      <h4 className="font-serif text-base text-espresso-800 mb-1 leading-tight">{s.name}</h4>
+      <p className="text-xs text-espresso-700/70 leading-snug">{s.role}</p>
+    </article>
+  );
+}
 
 export function Speakers() {
+  const openLightbox = useLightbox();
+
   return (
     <section className="bg-sand-50 section-padding">
       <div className="container-c5">
@@ -12,13 +48,23 @@ export function Speakers() {
         />
 
         {/* Banner: foto del evento con coaches */}
-        <div className="aspect-[16/7] bg-sand-100 relative overflow-hidden grain mt-12 max-w-6xl mx-auto">
+        <button
+          type="button"
+          onClick={() =>
+            openLightbox(
+              '/images/banner-retiro-coaches-2026.jpg',
+              'Coaches y comunidad Retiro Inmobiliario 2026'
+            )
+          }
+          className="aspect-[16/7] bg-sand-100 relative overflow-hidden grain mt-12 max-w-6xl mx-auto block w-full cursor-zoom-in group"
+          aria-label="Ampliar foto del evento Retiro Inmobiliario 2026"
+        >
           <img
             src="/images/banner-retiro-coaches-2026.jpg"
             alt="Coaches y comunidad Retiro Inmobiliario 2026"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
           />
-        </div>
+        </button>
 
         {/* Industria de Miami real estate */}
         <div className="mt-16">
@@ -27,27 +73,7 @@ export function Speakers() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {INDUSTRY_SPEAKERS.map((s) => (
-              <article key={s.name} className="bg-white border border-espresso-800/10 p-5 flex flex-col">
-                <div className="aspect-[4/5] bg-sand-100 mb-4 relative overflow-hidden grain">
-                  {s.imageSrc ? (
-                    <img
-                      src={s.imageSrc}
-                      alt={s.imageAlt}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest text-center px-2">
-                      Foto pendiente
-                    </div>
-                  )}
-                </div>
-                <h4 className="font-serif text-base text-espresso-800 mb-1 leading-tight">
-                  {s.name}
-                </h4>
-                <p className="text-xs text-espresso-700/70 leading-snug">
-                  {s.role}
-                </p>
-              </article>
+              <SpeakerCard key={s.name} s={s} />
             ))}
           </div>
         </div>
@@ -59,27 +85,7 @@ export function Speakers() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {CULTURE_SPEAKERS.map((s) => (
-              <article key={s.name} className="bg-white border border-espresso-800/10 p-5 flex flex-col">
-                <div className="aspect-[4/5] bg-sand-100 mb-4 relative overflow-hidden grain">
-                  {s.imageSrc ? (
-                    <img
-                      src={s.imageSrc}
-                      alt={s.imageAlt}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest text-center px-2">
-                      Foto pendiente
-                    </div>
-                  )}
-                </div>
-                <h4 className="font-serif text-base text-espresso-800 mb-1 leading-tight">
-                  {s.name}
-                </h4>
-                <p className="text-xs text-espresso-700/70 leading-snug">
-                  {s.role}
-                </p>
-              </article>
+              <SpeakerCard key={s.name} s={s} />
             ))}
           </div>
         </div>
