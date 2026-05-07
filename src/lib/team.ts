@@ -1,9 +1,16 @@
 // Team data — leadership and dedicated advisors
 
+export type AdvisorLink = {
+  type: 'book' | 'instagram' | 'youtube' | 'linkedin' | 'website' | 'reviews';
+  label: string;
+  url: string;
+};
+
 export type TeamMember = {
   name: string;
   role: string;
-  bullets: string[];
+  bullets?: string[];
+  links?: AdvisorLink[];
   imageSrc: string; // placeholder path, equipo de Orlando reemplaza
   imageAlt: string;
 };
@@ -39,10 +46,11 @@ export const ADVISORS: TeamMember[] = [
   {
     name: 'Marcela Galvis',
     role: 'Asesora especializada · Inversionistas internacionales',
-    bullets: [
-      'Autora · Educadora del sector',
-      'Especialista en asesoría a inversionistas internacionales',
-      'Procesos EB-5 (visa de inversión)',
+    links: [
+      { type: 'book', label: 'Libro', url: 'https://a.co/d/0bXzz7vF' },
+      { type: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/marcelagalvismiami/' },
+      { type: 'youtube', label: 'YouTube', url: 'https://www.youtube.com/@marcelagalvis' },
+      { type: 'reviews', label: 'Reviews', url: 'https://share.google/6uJBmHgBDsCOkOQCE' },
     ],
     imageSrc: '/images/marcela%20galvis.png',
     imageAlt: 'Marcela Galvis, asesora de C5 Elite',
@@ -50,10 +58,11 @@ export const ADVISORS: TeamMember[] = [
   {
     name: 'Ana Vega',
     role: 'Asesora especializada · Inversionistas internacionales',
-    bullets: [
-      'Autora de metodología propia · Educadora del sector',
-      'Especialista en asesoría a inversionistas internacionales',
-      'Procesos EB-5 (visa de inversión)',
+    links: [
+      { type: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/theanavegagroup/' },
+      { type: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/theanavegagroup/' },
+      { type: 'youtube', label: 'YouTube', url: 'https://youtube.com/@theanavegagroup' },
+      { type: 'website', label: 'Website', url: 'https://www.theanavegagroup.com/' },
     ],
     imageSrc: '/images/ana%20vega.png',
     imageAlt: 'Ana Vega, asesora de C5 Elite',
@@ -61,10 +70,10 @@ export const ADVISORS: TeamMember[] = [
   {
     name: 'Giselle Fermín',
     role: 'Asesora especializada · Inversionistas internacionales',
-    bullets: [
-      'Autora · Educadora del sector',
-      'Especialista en asesoría a inversionistas internacionales',
-      'Procesos EB-5 (visa de inversión)',
+    links: [
+      { type: 'book', label: 'Libro', url: 'https://shorturl.at/s8FIY' },
+      { type: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/gisellefermin_realtor' },
+      { type: 'youtube', label: 'YouTube', url: 'https://www.youtube.com/@giselleferminr' },
     ],
     imageSrc: '/images/giselle%20fermin.png',
     imageAlt: 'Giselle Fermín, asesora de C5 Elite',
@@ -146,6 +155,128 @@ export const QUALIFICATION_CRITERIA = {
     'Buscas un broker que te muestre unidades sin antes entender tus objetivos',
   ],
 };
+
+export type Speaker = {
+  name: string;
+  role: string;
+  imageSrc: string;
+  imageAlt: string;
+};
+
+// Speakers que han participado en Retiro Inmobiliario (evento que organizan los hermanos Montiel)
+export const INDUSTRY_SPEAKERS: Speaker[] = [
+  {
+    name: 'Jon Paul & Nick Pérez',
+    role: 'Related Group · liderazgo del desarrollador #1 de condos en Miami',
+    imageSrc: '',
+    imageAlt: 'Jon Paul y Nick Pérez · Related Group',
+  },
+  {
+    name: 'Alicia Cervera',
+    role: 'Cervera Real Estate · 50+ años representando proyectos icónicos de Miami',
+    imageSrc: '',
+    imageAlt: 'Alicia Cervera · Cervera Real Estate',
+  },
+  {
+    name: 'Edgardo Defortuna',
+    role: 'Fortune International · +50 torres desarrolladas en Miami',
+    imageSrc: '',
+    imageAlt: 'Edgardo Defortuna · Fortune International',
+  },
+  {
+    name: 'David Martin',
+    role: 'Terra Group · desarrollador detrás de Jean-Georges Residences',
+    imageSrc: '',
+    imageAlt: 'David Martin · Terra Group',
+  },
+  {
+    name: 'Craig Studnicky',
+    role: 'ISG World · CEO · autor del Miami Report',
+    imageSrc: '',
+    imageAlt: 'Craig Studnicky · ISG World',
+  },
+  {
+    name: 'Diego Ojeda',
+    role: 'Rilea Group · Presidente · desarrollador de The Rider',
+    imageSrc: '',
+    imageAlt: 'Diego Ojeda · Rilea Group',
+  },
+];
+
+export const CULTURE_SPEAKERS: Speaker[] = [
+  {
+    name: 'Don Francisco',
+    role: 'Leyenda de la TV en español',
+    imageSrc: '/images/don%20francisco.png',
+    imageAlt: 'Don Francisco',
+  },
+  {
+    name: 'Emilio Estefan Jr.',
+    role: 'Productor multi-Grammy · ícono cultural global',
+    imageSrc: '/images/emilio%20stefan.png',
+    imageAlt: 'Emilio Estefan Jr.',
+  },
+  {
+    name: 'Ignacio Meyer',
+    role: 'Presidente de Univisión',
+    imageSrc: '/images/ignacio-meyer.jpg',
+    imageAlt: 'Ignacio Meyer · Presidente de Univisión',
+  },
+  {
+    name: 'Margarita Pasos',
+    role: 'Coach motivacional · alta recordación en Colombia',
+    imageSrc: '/images/margarita-pasos.jpg',
+    imageAlt: 'Margarita Pasos',
+  },
+  {
+    name: 'Ismael Cala',
+    role: 'Periodista · ex-CNN · autor bestseller',
+    imageSrc: '',
+    imageAlt: 'Ismael Cala',
+  },
+  {
+    name: 'Andrew Bustamante',
+    role: 'Ex-oficial CIA · fundador de EverydaySpy',
+    imageSrc: '',
+    imageAlt: 'Andrew Bustamante',
+  },
+];
+
+// FAQ adaptado al contexto Delano (preconstrucción 2030-2031)
+export const FAQS = [
+  {
+    q: '¿Por qué tiene sentido comprar en preconstrucción si el edificio se entrega en 2030-2031?',
+    a: 'En preconstrucción accedes al precio más bajo del ciclo de vida del proyecto. Pagas la unidad en cuotas durante los años de construcción y aseguras hoy un precio que el mercado abierto ya no ofrecerá. La apreciación entre la firma y la entrega es el principal driver de retorno en este tipo de compra.',
+  },
+  {
+    q: '¿Cómo funciona el calendario de pagos extendido que ofrece C5 para Delano?',
+    a: 'El acuerdo que negociamos con el desarrollador permite distribuir tus pagos durante todo el periodo de construcción (3 años aprox.) en lugar de los plazos estándar del mercado. Mantienes liquidez para otras inversiones mientras tu unidad se construye y solo terminas el desembolso al cierre.',
+  },
+  {
+    q: '¿El mercado de Miami va a seguir subiendo?',
+    a: 'Nadie puede prometer el futuro, pero los datos públicos son contundentes: el precio mediano de condominios en Miami pasó de aprox. $182K en 2014 a $415K en 2024 (Miami Association of Realtors). Miami es el mercado #1 en USA para inversión inmobiliaria extranjera (PRNewswire 2025) y #2 mundial en branded residences detrás de Dubai (Knight Frank 2025). El driver principal: migración constante de capital LATAM, status quo del dólar como reserva de valor, y oferta limitada en zonas premium del downtown.',
+  },
+  {
+    q: '¿Es legal y común invertir desde mi país en bienes raíces de Miami?',
+    a: 'Sí, completamente. Compras como Foreign National sin necesidad de residencia o ciudadanía estadounidense. Los compradores latinoamericanos representan más del 23% de las compras de preconstrucción en Miami. Colombia ha estado en el Top 2 países buscando real estate en Miami por 36 meses consecutivos (Miami Realtors 2025). No eres una excepción: eres parte de la norma.',
+  },
+  {
+    q: '¿Cómo funciona el financiamiento para un inversionista extranjero?',
+    a: 'Inicial desde 35% del valor de la propiedad. El 65% restante se financia con un Foreign National Loan que ofrecen prestamistas especializados en compradores internacionales (sin necesidad de SSN ni historial crediticio americano). Trabajamos con 3-4 prestamistas aliados; te conectamos con el que mejor encaje en tu perfil.',
+  },
+  {
+    q: '¿Qué estructura legal me conviene? (LLC, trust o compra a nombre individual)',
+    a: 'No hay respuesta única. Depende de tu capital, tu país de residencia fiscal, si tienes herederos en EE.UU. y tu objetivo de salida. Te conectamos con un abogado especializado en inversionistas internacionales que diseña la estructura específica para tu caso: la mayoría de nuestros clientes terminan comprando vía LLC, pero no es la respuesta correcta para todos.',
+  },
+  {
+    q: '¿Puedo ver Delano antes de comprar si todavía está en construcción?',
+    a: 'Como el edificio está en preconstrucción, no hay unidad física que mostrar. Lo que sí ofrecemos: tour virtual de los renders 3D del proyecto, recorrido en sales gallery cuando viajas a Miami, video-llamada con el desarrollador (PMG) si quieres entender el plan maestro, y acceso a las amenidades del Delano Hotel actual para que entiendas el estándar de la marca.',
+  },
+  {
+    q: '¿Cómo sé que C5 Elite no es un scam?',
+    a: 'C5 Global tiene 25+ años en el mercado. Oficina física verificable en Coral Gables (1 Alhambra Plaza, Penthouse Floor). Afiliados a eXp Realty. Licensed en Florida. Reconocidos por la Alcaldía de Doral en 2024. +11,500 inversionistas internacionales asesorados. Nuestros fundadores tienen presencia pública en Univisión, Telemundo, e Imagen Miami con apariciones verificables. La gente que organiza Retiro Inmobiliario y aparece en TV no tiene incentivo en hacer fraude.',
+  },
+];
 
 export const NEARBY_LANDMARKS = [
   { name: 'Brickell Financial District', minutes: 5 },

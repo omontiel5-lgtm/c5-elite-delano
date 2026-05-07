@@ -49,16 +49,28 @@ export function Leadership() {
             Apariciones públicas y validaciones institucionales
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {/* Instagram reel — primer item, izquierda */}
+            <div className="aspect-[4/5] bg-sand-100 relative overflow-hidden">
+              <iframe
+                src="https://www.instagram.com/p/C0m80EXuFMm/embed"
+                className="absolute inset-0 w-full h-full"
+                frameBorder={0}
+                scrolling="no"
+                allow="encrypted-media; clipboard-write; picture-in-picture"
+                title="Aparición pública C5 Global"
+              />
+            </div>
+
+            {/* Resto: fotos */}
             {[
               { src: '/images/despierta%20america%20.png', alt: 'Univisión Despierta América' },
               { src: '/images/revista%20imagen%20most%20influential.png', alt: 'Revista Imagen - Most Influential Men Miami' },
               { src: '', alt: '' },
               { src: '', alt: '' },
-              { src: '', alt: '' },
             ].map((event, i) => (
               <div
                 key={i}
-                className="aspect-[4/3] bg-sand-100 relative overflow-hidden grain"
+                className="aspect-[4/5] bg-sand-100 relative overflow-hidden grain"
               >
                 {event.src ? (
                   <img
@@ -68,7 +80,7 @@ export function Leadership() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest">
-                    Foto {i + 1}
+                    Foto {i + 2}
                   </div>
                 )}
               </div>

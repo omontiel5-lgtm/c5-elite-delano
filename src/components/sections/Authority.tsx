@@ -1,11 +1,10 @@
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { AUTHORITY_NUMBERS, MEDIA_RECOGNITION } from '@/lib/constants';
 
 const ICONS_PEOPLE = [
   { name: 'Don Francisco', desc: 'Leyenda de la TV en español', src: '/images/don%20francisco.png' },
   { name: 'Emilio Estefan Jr.', desc: 'Productor multi-Grammy', src: '/images/emilio%20stefan.png' },
-  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión', src: '' },
-  { name: 'Margarita Pasos', desc: 'Coach motivacional', src: '' },
+  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión', src: '/images/ignacio-meyer.jpg' },
+  { name: 'Margarita Pasos', desc: 'Coach motivacional', src: '/images/margarita-pasos.jpg' },
   { name: 'Maickel Melamed', desc: 'Ícono inspiracional', src: '' },
 ];
 
@@ -16,39 +15,24 @@ export function Authority() {
         <SectionHeading
           eyebrow="La autoridad detrás del nombre"
           title="Somos la mesa institucional latina de Miami real estate."
-          subtitle="Cuando lo decimos nosotros, es marketing. Cuando lo dicen Univisión, Telemundo y la Alcaldía de Doral, es editorial."
         />
 
-        {/* Numbers grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-espresso-800/10 border border-espresso-800/10 mb-20">
-          {AUTHORITY_NUMBERS.map((n) => (
-            <div
-              key={n.label}
-              className="bg-white p-8 lg:p-10 text-center"
-            >
-              <p className="font-serif text-4xl lg:text-5xl xl:text-6xl text-champagne-600 mb-3 leading-none">
-                {n.value}
-              </p>
-              <p className="text-sm text-espresso-700/80 leading-snug text-balance">
-                {n.label}
-              </p>
-            </div>
-          ))}
+        {/* C5 Portfolio — track record + project logos */}
+        <div className="mb-20">
+          <img
+            src="/images/c5-portfolio.png"
+            alt="C5 Elite — +$500M en ventas, +750 unidades cerradas, 12+ proyectos en portfolio, +11,500 compradores internacionales asesorados. Proyectos: One Twenty Brickell, Domus Brickell Center, Frida Kahlo Wynwood Residences, The Elser Hotel, Cassia Coral Gables, 14 River District, Lennar, Visions Resort & Spa, Millenia Park, Jean-Georges Miami Tropic, The Standard Brickell, The Rider Residences, Delano Residences, Flow, One Park Tower by Turnberry"
+            className="w-full h-auto"
+          />
         </div>
 
-        {/* Media recognition */}
-        <div className="text-center mb-20">
-          <p className="eyebrow mb-8">Reconocidos por</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {MEDIA_RECOGNITION.map((m) => (
-              <span
-                key={m}
-                className="font-serif text-lg lg:text-xl text-espresso-800/70 tracking-wide"
-              >
-                {m}
-              </span>
-            ))}
-          </div>
+        {/* Media recognition — press logos */}
+        <div className="mb-20">
+          <img
+            src="/images/media-logos.png"
+            alt="Reconocidos por Univisión, Telemundo, Imagen Miami, Doral, El Heraldo, El Mexicano, Notistarz, The Abundance Revolution, Sinergéticos"
+            className="w-full max-w-6xl mx-auto h-auto"
+          />
         </div>
 
         {/* Iconic people grid */}

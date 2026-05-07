@@ -7,8 +7,8 @@ export const BRAND = {
   whatsapp: '+1 786-396-5621',
   whatsappLink: 'https://wa.me/17863965621',
   email: 'info@c5elite.com',
-  address: '400 Biscayne Blvd, Miami FL 33132',
-  city: 'Miami, Florida',
+  address: '1 Alhambra Plaza, Penthouse Floor, Coral Gables, FL 33134',
+  city: 'Coral Gables, Florida',
 } as const;
 
 export const PROJECT = {

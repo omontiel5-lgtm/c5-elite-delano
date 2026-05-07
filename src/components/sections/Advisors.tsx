@@ -1,5 +1,15 @@
+import { BookOpen, Instagram, Youtube, Linkedin, Globe, Star } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { ADVISORS } from '@/lib/team';
+import { ADVISORS, type AdvisorLink } from '@/lib/team';
+
+const LINK_ICONS: Record<AdvisorLink['type'], typeof BookOpen> = {
+  book: BookOpen,
+  instagram: Instagram,
+  youtube: Youtube,
+  linkedin: Linkedin,
+  website: Globe,
+  reviews: Star,
+};
 
 export function Advisors() {
   return (
@@ -28,18 +38,27 @@ export function Advisors() {
               <h3 className="font-serif text-2xl text-espresso-800 mb-2 leading-tight">
                 {advisor.name}
               </h3>
-              <p className="eyebrow text-xs mb-5">Asesora especializada</p>
-              <ul className="space-y-2">
-                {advisor.bullets.map((b) => (
-                  <li
-                    key={b}
-                    className="flex gap-3 text-sm text-espresso-700/90 leading-relaxed"
-                  >
-                    <span className="text-champagne-500 mt-1.5 flex-shrink-0">•</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="eyebrow text-xs mb-5">Asesora especializada · Inversionistas internacionales</p>
+
+              {advisor.links && advisor.links.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {advisor.links.map((link) => {
+                    const Icon = LINK_ICONS[link.type];
+                    return (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3 py-2 text-xs font-medium text-espresso-800 border border-espresso-800/20 hover:border-champagne-500 hover:bg-champagne-500/10 hover:text-espresso-900 transition-all"
+                      >
+                        <Icon className="h-3.5 w-3.5" strokeWidth={1.5} />
+                        <span>{link.label}</span>
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
             </article>
           ))}
         </div>
