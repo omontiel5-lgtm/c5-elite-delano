@@ -23,6 +23,7 @@ export default function HomePage() {
         <Guarantees />
         <Authority />
         <Speakers />
+        <FinalCTADual />
         <Advisors />
         <Process />
         <FAQ />
