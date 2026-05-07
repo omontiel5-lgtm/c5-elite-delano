@@ -18,14 +18,11 @@ export function Leadership() {
               className="bg-sand-50 p-10 lg:p-14 flex flex-col"
             >
               <div className="aspect-[4/5] bg-sand-100 mb-8 relative overflow-hidden grain">
-                {/* Equipo: reemplazar con <Image src={member.imageSrc} alt={member.imageAlt} fill className="object-cover" /> */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sand-300 text-xs uppercase tracking-widest text-center px-6">
-                    Foto profesional
-                    <br />
-                    {member.name}
-                  </span>
-                </div>
+                <img
+                  src={member.imageSrc}
+                  alt={member.imageAlt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
 
               <div>
@@ -52,14 +49,28 @@ export function Leadership() {
             Apariciones públicas y validaciones institucionales
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            {[1, 2, 3, 4, 5].map((i) => (
+            {[
+              { src: '/images/despierta%20america%20.png', alt: 'Univisión Despierta América' },
+              { src: '/images/revista%20imagen%20most%20influential.png', alt: 'Revista Imagen - Most Influential Men Miami' },
+              { src: '', alt: '' },
+              { src: '', alt: '' },
+              { src: '', alt: '' },
+            ].map((event, i) => (
               <div
                 key={i}
                 className="aspect-[4/3] bg-sand-100 relative overflow-hidden grain"
               >
-                <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest">
-                  Foto {i}
-                </div>
+                {event.src ? (
+                  <img
+                    src={event.src}
+                    alt={event.alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest">
+                    Foto {i + 1}
+                  </div>
+                )}
               </div>
             ))}
           </div>

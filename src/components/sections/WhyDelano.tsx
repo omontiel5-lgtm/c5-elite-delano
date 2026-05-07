@@ -21,19 +21,25 @@ export function WhyDelano() {
           subtitle="Delano es una de las marcas de hospitalidad de lujo más reconocidas del mundo. Sus residencias en Miami llevan esa firma a la propiedad privada: amenidades de hotel, servicio de marca y diseño de autor en un edificio que va a redefinir el skyline de la ciudad."
         />
 
-        {/* Renders placeholder grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-          {[1, 2, 3].map((i) => (
+        {/* Renders grid 3x2 */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+          {[
+            { src: '/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Sky%20Lounge.jpg', alt: 'Delano Residences Miami - Sky Lounge' },
+            { src: '/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Pool%20Deck.jpg', alt: 'Delano Residences Miami - Pool Deck' },
+            { src: '/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Residence%20Kitchen.jpg', alt: 'Delano Residences Miami - Residence Kitchen' },
+            { src: '/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Residence%20Dining%20Room.jpg', alt: 'Delano Residences Miami - Dining Room' },
+            { src: '/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Fitness%20Center.jpg', alt: 'Delano Residences Miami - Fitness Center' },
+            { src: '/images/skydeck.png', alt: 'Delano Residences Miami - Sky Deck' },
+          ].map((render, i) => (
             <div
               key={i}
               className="aspect-[4/5] bg-sand-100 relative overflow-hidden grain"
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-sand-300 text-sm uppercase tracking-widest">
-                  Render {i}
-                </span>
-              </div>
-              {/* Equipo: reemplazar con <Image src={`/images/delano-render-${i}.jpg`} alt="Delano Residences Miami" fill className="object-cover" /> */}
+              <img
+                src={render.src}
+                alt={render.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
           ))}
         </div>
@@ -60,13 +66,11 @@ export function WhyDelano() {
         <div className="bg-espresso-800 text-sand-50 p-12 lg:p-20 mb-24 grain">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="aspect-[4/3] bg-espresso-700 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-sand-50/40 text-sm uppercase tracking-widest text-center px-6">
-                  Render Observation Deck
-                  <br />
-                  <span className="text-xs">(equipo: subir imagen aquí)</span>
-                </span>
-              </div>
+              <img
+                src="/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Observation%20Deck.jpg"
+                alt="Observation Deck Delano Residences Miami - Primer observation deck residencial de Miami"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
 
             <div>
@@ -87,6 +91,37 @@ export function WhyDelano() {
                 fragmento del paisaje urbano más reconocible de Miami.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Vistas cardinales desde el edificio */}
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <p className="eyebrow text-champagne-600 mb-4">Vistas desde tu unidad</p>
+            <h3 className="font-serif text-3xl lg:text-4xl text-espresso-800 leading-tight text-balance max-w-3xl mx-auto">
+              360° del corazón de Miami a través de tus ventanas.
+            </h3>
+            <div className="divider-gold mt-8" />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { src: '/images/north%20view.png', label: 'Vista Norte', alt: 'Vista Norte desde Delano Residences Miami' },
+              { src: '/images/east%20view.png', label: 'Vista Este', alt: 'Vista Este — Biscayne Bay y océano' },
+              { src: '/images/south%20view.png', label: 'Vista Sur', alt: 'Vista Sur — Brickell skyline' },
+              { src: '/images/west%20view.png', label: 'Vista Oeste', alt: 'Vista Oeste — Downtown Miami' },
+            ].map((view) => (
+              <div key={view.label} className="relative">
+                <div className="aspect-[4/3] bg-sand-100 overflow-hidden grain relative">
+                  <img
+                    src={view.src}
+                    alt={view.alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <p className="eyebrow mt-3 text-center">{view.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -117,10 +152,12 @@ export function WhyDelano() {
           <div className="grid md:grid-cols-2 gap-px bg-espresso-800/10 border border-espresso-800/10">
             <div className="bg-sand-50 p-10">
               <p className="eyebrow mb-3">Waldorf Astoria Residences Miami</p>
-              <div className="aspect-video bg-sand-100 mb-6 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest">
-                  Render Waldorf
-                </div>
+              <div className="aspect-video bg-sand-100 mb-6 relative overflow-hidden">
+                <img
+                  src="/images/waldorf-render.jpg"
+                  alt="Waldorf Astoria Residences Miami"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
               <ul className="space-y-2 text-sm text-espresso-700">
                 <li>• Edificio residencial más alto de Miami</li>
@@ -132,10 +169,12 @@ export function WhyDelano() {
             </div>
             <div className="bg-sand-50 p-10 border-l-2 border-champagne-500">
               <p className="eyebrow text-champagne-600 mb-3">Delano Residences Miami</p>
-              <div className="aspect-video bg-sand-100 mb-6 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-sand-300 text-xs uppercase tracking-widest">
-                  Render Delano
-                </div>
+              <div className="aspect-video bg-sand-100 mb-6 relative overflow-hidden">
+                <img
+                  src="/images/Delano%20Residences%20%26%20Hotel%20Miami%20-%20Sky%20Lounge.jpg"
+                  alt="Delano Residences Miami"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
               <ul className="space-y-2 text-sm text-espresso-700">
                 <li>• Primer Observation Deck residencial de Miami</li>

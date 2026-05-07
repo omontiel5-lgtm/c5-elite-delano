@@ -44,7 +44,7 @@ export const ADVISORS: TeamMember[] = [
       'Especialista en asesoría a inversionistas internacionales',
       'Procesos EB-5 (visa de inversión)',
     ],
-    imageSrc: '/images/team/marcela-galvis.jpg',
+    imageSrc: '/images/marcela%20galvis.png',
     imageAlt: 'Marcela Galvis, asesora de C5 Elite',
   },
   {
@@ -55,7 +55,7 @@ export const ADVISORS: TeamMember[] = [
       'Especialista en asesoría a inversionistas internacionales',
       'Procesos EB-5 (visa de inversión)',
     ],
-    imageSrc: '/images/team/ana-vega.jpg',
+    imageSrc: '/images/ana%20vega.png',
     imageAlt: 'Ana Vega, asesora de C5 Elite',
   },
   {
@@ -66,7 +66,7 @@ export const ADVISORS: TeamMember[] = [
       'Especialista en asesoría a inversionistas internacionales',
       'Procesos EB-5 (visa de inversión)',
     ],
-    imageSrc: '/images/team/giselle-fermin.jpg',
+    imageSrc: '/images/giselle%20fermin.png',
     imageAlt: 'Giselle Fermín, asesora de C5 Elite',
   },
 ];

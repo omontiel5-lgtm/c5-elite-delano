@@ -27,9 +27,11 @@ export function Navbar() {
     >
       <div className="container-c5 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 group">
-          <div className="font-serif text-sand-50 text-xl tracking-wide">
-            C5 <span className="text-champagne-400">Elite</span>
-          </div>
+          <img
+            src="/images/logo.png"
+            alt="C5 Elite"
+            className="h-10 w-auto"
+          />
         </a>
 
         <button

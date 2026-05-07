@@ -2,11 +2,11 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { AUTHORITY_NUMBERS, MEDIA_RECOGNITION } from '@/lib/constants';
 
 const ICONS_PEOPLE = [
-  { name: 'Don Francisco', desc: 'Leyenda de la TV en español' },
-  { name: 'Emilio Estefan Jr.', desc: 'Productor multi-Grammy' },
-  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión' },
-  { name: 'Margarita Pasos', desc: 'Coach motivacional' },
-  { name: 'Maickel Melamed', desc: 'Ícono inspiracional' },
+  { name: 'Don Francisco', desc: 'Leyenda de la TV en español', src: '/images/don%20francisco.png' },
+  { name: 'Emilio Estefan Jr.', desc: 'Productor multi-Grammy', src: '/images/emilio%20stefan.png' },
+  { name: 'Ignacio Meyer', desc: 'Presidente de Univisión', src: '' },
+  { name: 'Margarita Pasos', desc: 'Coach motivacional', src: '' },
+  { name: 'Maickel Melamed', desc: 'Ícono inspiracional', src: '' },
 ];
 
 export function Authority() {
@@ -58,12 +58,19 @@ export function Authority() {
             {ICONS_PEOPLE.map((p) => (
               <div key={p.name} className="text-center">
                 <div className="aspect-square bg-sand-100 mb-4 relative overflow-hidden grain">
-                  {/* Equipo: subir foto en /public/images/icons/[slug].jpg */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sand-300 text-xs uppercase tracking-widest text-center px-2">
-                      Foto
-                    </span>
-                  </div>
+                  {p.src ? (
+                    <img
+                      src={p.src}
+                      alt={p.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-sand-300 text-xs uppercase tracking-widest text-center px-2">
+                        Foto
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <h4 className="font-serif text-lg text-espresso-800 mb-1 leading-tight">
                   {p.name}
@@ -79,12 +86,12 @@ export function Authority() {
         {/* Doral institutional recognition */}
         <div className="bg-espresso-800 text-sand-50 p-12 lg:p-16 grain">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="aspect-[4/3] bg-espresso-700 relative">
-              <div className="absolute inset-0 flex items-center justify-center text-sand-50/40 text-xs uppercase tracking-widest text-center px-6">
-                Foto: Mayor Christi Fraga entregando
-                <br />
-                el Congratulatory Certificate
-              </div>
+            <div className="aspect-[4/3] bg-espresso-700 relative overflow-hidden">
+              <img
+                src="/images/doral-mayor.jpg"
+                alt="Mayor Christi Fraga entregando Congratulatory Certificate a Orlando y Daniel Montiel"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
             <div>
               <p className="eyebrow text-champagne-400 mb-4">Reconocimiento institucional</p>

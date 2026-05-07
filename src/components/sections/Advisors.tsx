@@ -18,13 +18,11 @@ export function Advisors() {
               className="bg-sand-50 p-8 lg:p-10 flex flex-col"
             >
               <div className="aspect-[4/5] bg-sand-100 mb-6 relative overflow-hidden grain">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sand-300 text-xs uppercase tracking-widest text-center px-4">
-                    Foto profesional
-                    <br />
-                    {advisor.name}
-                  </span>
-                </div>
+                <img
+                  src={advisor.imageSrc}
+                  alt={advisor.imageAlt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
 
               <h3 className="font-serif text-2xl text-espresso-800 mb-2 leading-tight">

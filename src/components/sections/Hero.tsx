@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background image — equipo: reemplazar /public/images/hero-delano.jpg */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-espresso-900 via-espresso-800 to-espresso-700" />
-        <div className="absolute inset-0 bg-[url('/images/hero-delano-placeholder.jpg')] bg-cover bg-center opacity-30" />
+        <div className="absolute inset-0 bg-[url('/images/Delana%20Water%20View.webp')] bg-cover bg-center opacity-40" />
         <div className="absolute inset-0 gradient-warm" />
       </div>
 
