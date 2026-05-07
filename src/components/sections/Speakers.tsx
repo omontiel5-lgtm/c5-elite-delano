@@ -83,7 +83,7 @@ export function Speakers() {
           <h3 className="font-serif text-2xl lg:text-3xl text-espresso-800 mb-8 text-center">
             Cultura y autoridades LatAm
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {CULTURE_SPEAKERS.map((s) => (
               <SpeakerCard key={s.name} s={s} />
             ))}
