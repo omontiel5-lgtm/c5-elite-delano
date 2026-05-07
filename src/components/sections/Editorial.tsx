@@ -63,7 +63,7 @@ export function Editorial() {
               key={clip.outlet}
               className="bg-sand-50 border border-espresso-800/10 overflow-hidden flex flex-col"
             >
-              <div className="aspect-[9/16] bg-sand-100 relative overflow-hidden">
+              <div className="h-[680px] bg-sand-100 relative overflow-hidden">
                 <iframe
                   src={clip.embedUrl}
                   className="absolute inset-0 w-full h-full"
