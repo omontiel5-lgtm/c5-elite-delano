@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import { ModalProvider } from '@/components/providers/ModalProvider';
 import { LightboxProvider } from '@/components/providers/LightboxProvider';
 import './globals.css';
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -52,9 +53,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
 <head>
-        <script id="gtm-head" strategy="afterInteractive">
+        <Script id="gtm-head" strategy="afterInteractive">
           {`(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-N59N8H64');`}
-        </script>
+        </Script>
+  {children}
       </head>
       <body className="min-h-screen">
         <LightboxProvider>
