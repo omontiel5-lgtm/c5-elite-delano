@@ -51,10 +51,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
+<head>
+        <Script id="gtm-head" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-N59N8H64');`}
+        </Script>
+      </head>
       <body className="min-h-screen">
         <LightboxProvider>
           <ModalProvider>{children}</ModalProvider>
         </LightboxProvider>
+<noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N59N8H64"
+                  height="0" width="0" style={{display:'none',visibility:'hidden'}} />
+        </noscript> 
       </body>
     </html>
   );
