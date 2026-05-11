@@ -52,9 +52,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
 <head>
-        <Script id="gtm-head" strategy="afterInteractive">
+        <script id="gtm-head" strategy="afterInteractive">
           {`(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-N59N8H64');`}
-        </Script>
+        </script>
       </head>
       <body className="min-h-screen">
         <LightboxProvider>
