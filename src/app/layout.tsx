@@ -44,9 +44,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-import Script from "next/script";
-// (...tus otros imports: inter, playfair, providers, etc...)
-
 export default function RootLayout({
   children,
 }: {
