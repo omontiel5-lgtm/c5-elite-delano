@@ -86,6 +86,9 @@ export function QualificationModal({ open, onClose }: QualificationModalProps) {
       });
 
       if (!res.ok) throw new Error('Submit failed');
+      // Cerrar el modal y resetear estado antes de navegar a la página de gracias
+      setSubmitting(false);
+      onClose();
 
       switch (qualification) {
         case 'qualified':
