@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/orlandomontiel/Documents/Claude/Projects/CAMPANAS C5 ELITE DELANO/c5-elite-delano/src/app/layout":["static/media/e4af272ccee01ff0-s.p.woff2","static/media/eaead17c7dbfcd5d-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';

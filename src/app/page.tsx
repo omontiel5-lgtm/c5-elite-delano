@@ -10,6 +10,7 @@ import { Advisors } from '@/components/sections/Advisors';
 import { Process } from '@/components/sections/Process';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTADual } from '@/components/sections/FinalCTADual';
+import { PortfolioStrip } from '@/components/sections/PortfolioStrip';
 import { Footer } from '@/components/sections/Footer';
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <PortfolioStrip position="top" variant="light" />
         <Editorial />
         <WhyDelano />
         <Guarantees />
@@ -30,6 +32,7 @@ export default function HomePage() {
         <section id="cta">
           <FinalCTADual />
         </section>
+        <PortfolioStrip position="bottom" variant="dark" />
       </main>
       <Footer />
       <WhatsAppFloat />

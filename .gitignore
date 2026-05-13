@@ -1,0 +1,6 @@
+
+# Dependencies — nunca commitear
+node_modules/
+.next/
+.vercel/
+*.log
