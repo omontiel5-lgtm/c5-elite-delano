@@ -59,7 +59,7 @@ export function PortfolioStrip({
               isLight ? 'text-espresso-800' : 'text-sand-50'
             )}
           >
-            Acceso a la cartera{' '}
+            Acceso a la cartera de propiedades{' '}
             <em
               className={cn(
                 'italic font-normal',
@@ -68,7 +68,7 @@ export function PortfolioStrip({
             >
               premium
             </em>{' '}
-            de Miami.
+            en Miami.
           </h2>
           <p
             className={cn(
