@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
 
 /**
- * API route que recibe el form submission y crea el contacto en Go High Level
- * usando la API v2 (LeadConnector) con endpoint /contacts/upsert. Esto evita el costo de "Inbound Webhook"
- * trigger en workflows de GHL.
+ * API route que recibe el form submission y crea/actualiza el contacto en Go High Level
+ * usando la API v2 (LeadConnector) con endpoint /contacts/upsert.
  *
  * Variables de entorno requeridas (server-side, NUNCA exponer al cliente):
  * - GHL_PIT:         Private Integration Token (Settings → Private Integrations)
@@ -11,6 +10,8 @@ import { NextResponse } from 'next/server';
  *
  * Al crear el contacto con tags: ['lp-delano'], el workflow "Round robin delano"
  * dispara automáticamente porque su trigger es "Contact Tag Added includes 'lp-delano'".
+ *
+ * Las respuestas del modal (inv_*) se mapean a customFields de GHL por ID interno.
  */
 
 type SubmitPayload = {
@@ -28,6 +29,22 @@ type SubmitPayload = {
 const LP_TAG = 'lp-delano';
 const GHL_API_BASE = 'https://services.leadconnectorhq.com';
 const GHL_API_VERSION = '2021-07-28';
+
+// Mapeo de los campos inv_* del modal a los IDs internos de los custom fields de GHL.
+// Si renombras o reemplazas un custom field en GHL, hay que actualizar el ID aquí.
+const CUSTOM_FIELD_IDS: Record<string, string> = {
+  inv_capital:            'QqIBmgbX1i2dBJQdSE2Q',
+  inv_estructura_capital: 'LJDqY3vBKZwrUHFF6qug',
+  inv_experiencia:        '1LJto519pQZdlhgf76p0',
+  inv_timing:             's26jaFxVshks7dePf3Kt',
+  inv_objetivo:           'yV3ryROd3HDdMQv0AWxa',
+  inv_reto:               'xpQsze1l6ibxiWPUOek4',
+  inv_decision:           'ZGljT51D1mckas8LgkHZ',
+  inv_tipo_reunion:       'TaK8ddjL9wdhwFZ8Q25Q',
+  inv_etapa:              'aM8WSxIpg1ZKqt5D0oiI',
+  inv_disponibilidad:     't2YhZjBbexOzuAs4KxYs',
+  inv_calificacion:       '1ApnKgwMueJPaAj9OvLh',
+};
 
 export async function POST(request: Request) {
   try {
@@ -56,6 +73,21 @@ export async function POST(request: Request) {
       new Set([...existingTags, LP_TAG, `qualification:${body.qualification}`])
     );
 
+    // Mapear las respuestas inv_* del modal a customFields con IDs reales.
+    const customFields: { id: string; value: string }[] = [];
+    for (const [key, id] of Object.entries(CUSTOM_FIELD_IDS)) {
+      const value = body[key];
+      if (typeof value === 'string' && value.trim().length > 0) {
+        customFields.push({ id, value });
+      }
+    }
+    if (!customFields.some((f) => f.id === CUSTOM_FIELD_IDS.inv_calificacion) && body.qualification) {
+      customFields.push({
+        id: CUSTOM_FIELD_IDS.inv_calificacion,
+        value: body.qualification,
+      });
+    }
+
     const ghlPayload = {
       locationId,
       firstName: body.firstName,
@@ -64,6 +96,7 @@ export async function POST(request: Request) {
       phone: body.phone,
       source: body.source || 'Landing Page Delano',
       tags: tagsForGHL,
+      customFields,
     };
 
     const ghlRes = await fetch(`${GHL_API_BASE}/contacts/upsert`, {
@@ -87,7 +120,11 @@ export async function POST(request: Request) {
     }
 
     const ghlData = await ghlRes.json().catch(() => ({}));
-    return NextResponse.json({ ok: true, contactId: ghlData?.contact?.id, isNew: ghlData?.new });
+    return NextResponse.json({
+      ok: true,
+      contactId: ghlData?.contact?.id,
+      isNew: ghlData?.new,
+    });
   } catch (e) {
     console.error('[C5 Elite Submit] Error:', e);
     return NextResponse.json(
