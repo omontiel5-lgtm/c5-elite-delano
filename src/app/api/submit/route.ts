@@ -1,25 +1,16 @@
 import { NextResponse } from 'next/server';
 
 /**
- * API route que recibe el form submission y lo manda a Go High Level via webhook.
+ * API route que recibe el form submission y crea el contacto en Go High Level
+ * usando la API v2 (LeadConnector). Esto evita el costo de "Inbound Webhook"
+ * trigger en workflows de GHL.
  *
- * Variables de entorno requeridas:
- * - GHL_WEBHOOK_URL: URL del webhook del workflow de calificación en GHL
+ * Variables de entorno requeridas (server-side, NUNCA exponer al cliente):
+ * - GHL_PIT:         Private Integration Token (Settings → Private Integrations)
+ * - GHL_LOCATION_ID: ID del location/sub-account de GHL
  *
- * El payload incluye:
- * - Datos básicos: firstName, lastName, email, phone
- * - Respuestas del formulario (inv_capital, inv_estructura_capital, ..., inv_disponibilidad)
- * - qualification: 'qualified' | 'rejected_capital' | 'rejected_timing' | 'rejected_info'
- * - submittedAt: ISO timestamp
- * - source: URL desde donde se envió
- * - tags: ['lp-delano', ...] — siempre incluye 'lp-delano' para disparar el workflow
- *
- * GHL workflow debe:
- * 1. Crear/actualizar contacto con los datos básicos
- * 2. Setear los Custom Fields según las respuestas
- * 3. Aplicar tag según qualification (calificado / no califica - capital / timing / info)
- * 4. Si qualification === 'qualified', dispara secuencia de WhatsApp + asignación a setter
- *    via round-robin (trigger: tag 'lp-delano')
+ * Al crear el contacto con tags: ['lp-delano'], el workflow "Round robin delano"
+ * dispara automáticamente porque su trigger es "Contact Tag Added includes 'lp-delano'".
  */
 
 type SubmitPayload = {
@@ -37,6 +28,9 @@ type SubmitPayload = {
 // Tag fijo del landing page — el workflow de GHL lo usa como disparador del round-robin
 const LP_TAG = 'lp-delano';
 
+const GHL_API_BASE = 'https://services.leadconnectorhq.com';
+const GHL_API_VERSION = '2021-07-28';
+
 export async function POST(request: Request) {
   try {
     const body: SubmitPayload = await request.json();
@@ -49,41 +43,57 @@ export async function POST(request: Request) {
       );
     }
 
-    // Inyectar tag del LP server-side (garantiza que todo lead lo lleve)
-    const existingTags = Array.isArray(body.tags) ? body.tags : [];
-    const payload = {
-      ...body,
-      tags: Array.from(new Set([...existingTags, LP_TAG])),
-    };
+    const pit = process.env.GHL_PIT;
+    const locationId = process.env.GHL_LOCATION_ID;
 
-    const webhookUrl = process.env.GHL_WEBHOOK_URL;
-
-    // Si el webhook no está configurado, log y devolver OK (modo dev)
-    if (!webhookUrl) {
+    // Modo dev: sin credenciales, log y devolver OK
+    if (!pit || !locationId) {
       console.warn(
-        '[C5 Elite Submit] GHL_WEBHOOK_URL no configurado. Payload recibido:',
-        payload
+        '[C5 Elite Submit] GHL_PIT o GHL_LOCATION_ID no configurados. Payload recibido:',
+        body
       );
-      return NextResponse.json({ ok: true, mode: 'dev_no_webhook' });
+      return NextResponse.json({ ok: true, mode: 'dev_no_credentials' });
     }
 
-    // Mandar al webhook de GHL
-    const ghlRes = await fetch(webhookUrl, {
+    // Tags que se envían a GHL — siempre incluye el tag base + qualification
+    const existingTags = Array.isArray(body.tags) ? body.tags : [];
+    const tagsForGHL = Array.from(
+      new Set([...existingTags, LP_TAG, `qualification:${body.qualification}`])
+    );
+
+    // Payload para la API v2 de GHL
+    const ghlPayload = {
+      locationId,
+      firstName: body.firstName,
+      lastName: body.lastName,
+      email: body.email,
+      phone: body.phone,
+      source: body.source || 'Landing Page Delano',
+      tags: tagsForGHL,
+    };
+
+    const ghlRes = await fetch(`${GHL_API_BASE}/contacts/`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      headers: {
+        Authorization: `Bearer ${pit}`,
+        Version: GHL_API_VERSION,
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(ghlPayload),
     });
 
     if (!ghlRes.ok) {
       const errorText = await ghlRes.text();
-      console.error('[C5 Elite Submit] GHL webhook error:', errorText);
+      console.error('[C5 Elite Submit] GHL API error:', ghlRes.status, errorText);
       return NextResponse.json(
-        { ok: false, error: 'GHL webhook failed' },
+        { ok: false, error: 'GHL contact create failed' },
         { status: 502 }
       );
     }
 
-    return NextResponse.json({ ok: true });
+    const ghlData = await ghlRes.json().catch(() => ({}));
+    return NextResponse.json({ ok: true, contactId: ghlData?.contact?.id });
   } catch (e) {
     console.error('[C5 Elite Submit] Error:', e);
     return NextResponse.json(
