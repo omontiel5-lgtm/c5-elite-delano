@@ -2,6 +2,9 @@ import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { BRAND } from '@/lib/constants';
 
+const GUIDE_DOWNLOAD_URL =
+  'https://drive.google.com/drive/folders/1ZOwxMDYI6Ui-gYmVLytv18S4QwSz3Xhs';
+
 interface ThankYouProps {
   title: string;
   body: string;
@@ -39,10 +42,15 @@ export function ThankYou({
                   <p className="text-sm text-espresso-700/70 mb-4">
                     Te compartimos sin compromiso
                   </p>
-                  <Button variant="secondary" size="md">
+                  <a
+                    href={GUIDE_DOWNLOAD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium uppercase tracking-widest border border-espresso-800 text-espresso-800 transition-all duration-300 hover:bg-espresso-800 hover:text-sand-50"
+                  >
                     <Download className="h-4 w-4" strokeWidth={1.5} />
                     Descargar guía para inversionistas
-                  </Button>
+                  </a>
                 </div>
               )}
 
