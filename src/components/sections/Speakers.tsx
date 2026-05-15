@@ -42,9 +42,9 @@ export function Speakers() {
     <section className="bg-sand-50 section-padding">
       <div className="container-c5">
         <SectionHeading
-          eyebrow="Retiro Inmobiliario · Quién pisa nuestro escenario"
-          title="Las personas que mueven Miami real estate suben primero a hablarle a nuestra audiencia."
-          subtitle="Retiro Inmobiliario es el evento de bienes raíces en español más grande del mundo. +1,500 inversionistas hispanos por edición. Lo organizan Orlando y Daniel Montiel."
+          eyebrow="Eventos · Retiro Inmobiliario"
+          title="El escenario inmobiliario más grande de habla hispana en U.S.A."
+          subtitle="Nuestros eventos son el punto de encuentro. Cuando convocamos, la industria responde. +1,200 asistentes por edición. Los desarrolladores que construyen Miami — y las figuras culturales que mueven LatAm — pisan los escenarios de los eventos inmobiliarios que organizamos en cada ciudad."
         />
 
         {/* Banner: foto del evento con coaches */}

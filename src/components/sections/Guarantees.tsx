@@ -4,21 +4,21 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 const GUARANTEES = [
   {
     icon: ShieldCheck,
-    title: 'No vendemos en la primera llamada',
+    title: 'Es un diagnóstico, no una venta',
     description:
-      'La llamada es 100% educativa. Si no hace match con tu objetivo, te lo decimos de frente.',
+      'La primera llamada evalúa si Delano hace sentido para tu caso. Si tu capital o timeline no califica, te lo decimos directo. Si otra propiedad te conviene más, te la recomendamos. Si necesitas 6 meses para estructurar, también te lo decimos.',
   },
   {
     icon: Lock,
     title: 'Tu información no se comparte',
     description:
-      'Política de privacidad explícita. No te llenamos de llamadas ni spam de otros brokers.',
+      'No vendemos ni compartimos tu información. No te asignamos a 4 agentes simultáneos. No usamos tu data para campañas externas.',
   },
   {
     icon: MapPin,
     title: 'Oficina física verificable en Miami',
     description:
-      'Dirección, Google Maps, video-llamada a nuestro estudio si lo pides. Estamos acá, no escondidos.',
+      'Tienes 3 formas de verificar que existimos: dirección física pública, ubicación en Google Maps y video-llamada a nuestro estudio si lo pides. Estamos acá, no escondidos.',
   },
 ];
 
@@ -28,8 +28,8 @@ export function Guarantees() {
       <div className="container-c5">
         <SectionHeading
           eyebrow="Cómo trabajamos"
-          title="Tres garantías que cualquier broker debería darte."
-          subtitle="Pero la mayoría no las da. Nosotros las ponemos por escrito."
+          title="Las tres garantías de nuestra consulta."
+          subtitle="Pero la mayoría de brokers no las da. Nosotros las ponemos por escrito."
         />
 
         <div className="grid gap-8 md:grid-cols-3 mt-16">

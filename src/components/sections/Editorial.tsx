@@ -14,24 +14,24 @@ type EditorialClip = {
 // Orlando: si quieres cambiar la selección, reemplaza el embedUrl de Instagram aquí.
 const EDITORIAL_CLIPS: EditorialClip[] = [
   {
-    outlet: 'Univisión Despierta América',
-    hook: '"De la angustia a la abundancia"',
+    outlet: 'Univisión · Despierta América',
+    hook: '"La voz hispana #1 en preconstrucción Miami."',
     description:
-      'Orlando Montiel presenta en vivo su libro sobre cómo cambiar la relación con el dinero en familia.',
+      'Orlando Montiel en estudio explicando cómo el calendario de pagos extendido cambió las reglas para inversionistas LatAm desde 2008.',
     embedUrl: 'https://www.instagram.com/p/C0m80EXuFMm/embed',
   },
   {
-    outlet: 'Telemundo Hoy Día',
-    hook: '"De vender ollas a millonarios"',
+    outlet: 'Telemundo · Hoy Día',
+    hook: '"El asesor que filtra antes de vender."',
     description:
-      'El origen de los hermanos Montiel narrado en horario AM nacional.',
+      'Entrevista sobre por qué C5 Elite descalifica clientes en la llamada diagnóstico cuando el proyecto no es el match — práctica inusual en el rubro.',
     embedUrl: 'https://www.instagram.com/p/C8pytu5KGLr/embed',
   },
   {
     outlet: 'Imagen Miami · Most Influential Men',
-    hook: '"Entre los 7 hombres más influyentes de Miami"',
+    hook: '"7 hombres más influyentes — Orlando y Daniel Montiel."',
     description:
-      'Daniel y Orlando Montiel reconocidos junto a Emilio Estefan Jr., Walter Kolm e Ignacio Meyer.',
+      'Reconocimiento editorial a los fundadores de C5 Global por liderar +$500M en preconstrucción hispana entre 2008 y 2025.',
     embedUrl: 'https://www.instagram.com/p/C1DBwalOFFp/embed',
   },
 ];
@@ -43,8 +43,8 @@ export function Editorial() {
     <section className="bg-white section-padding">
       <div className="container-c5">
         <SectionHeading
-          eyebrow="La autoridad detrás del nombre"
-          title="Cuando lo decimos nosotros, es marketing. Cuando lo dicen ellos, es editorial."
+          eyebrow="Validación mediática"
+          title="La firma inmobiliaria hispana que tus medios de confianza ya validaron."
         />
 
         {/* Media logos band */}

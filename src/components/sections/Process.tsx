@@ -8,7 +8,7 @@ export function Process() {
         <SectionHeading
           eyebrow="Cómo funciona"
           title="Cómo compras Delano desde tu país sin ser residente de EE.UU."
-          subtitle="El proceso completo en 5 pasos. Sin visa, sin viajes, sin sorpresas."
+          subtitle="Seis pasos, ~6–10 semanas hasta cierre (si el calendario de pagos lo permite). Cero necesidad de visa, residencia o cuenta bancaria estadounidense."
         />
 
         <div className="max-w-4xl mx-auto mt-16">

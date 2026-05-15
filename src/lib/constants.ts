@@ -25,10 +25,10 @@ export const PROJECT = {
 } as const;
 
 export const AUTHORITY_NUMBERS = [
-  { value: '+$500M', label: 'En volumen comercializado en preconstrucción Miami' },
+  { value: '$5.9B', label: 'En ventas histórico de C5 Global' },
+  { value: '9,600', label: 'Unidades cerradas en preconstrucción Miami' },
   { value: '+11,500', label: 'Inversionistas internacionales asesorados' },
   { value: '25+', label: 'Años en el mercado de Miami' },
-  { value: '12+', label: 'Proyectos en portafolio histórico' },
 ] as const;
 
 export const MEDIA_RECOGNITION = [

@@ -16,9 +16,9 @@ export function Advisors() {
     <section className="bg-sand-50 section-padding">
       <div className="container-c5">
         <SectionHeading
-          eyebrow="Tu equipo dedicado"
-          title="Tres especialistas para inversionistas internacionales."
-          subtitle="No llegas a un pool de 500 agentes. Una de estas 3 expertas te acompaña directamente durante todo el proceso, desde la primera llamada hasta el cierre y la activación de tu propiedad."
+          eyebrow="Tu especialista asignado"
+          title="Una persona tuya hasta entrega — no un pool rotativo."
+          subtitle="No te asignamos al próximo agente libre de una bolsa de 500. Marcela, Ana o Giselle te acompaña desde la videollamada estratégica hasta la entrega de la unidad y la activación del programa de renta."
         />
 
         <div className="grid md:grid-cols-3 gap-px bg-espresso-800/10 border border-espresso-800/10 mt-16">
@@ -64,8 +64,8 @@ export function Advisors() {
         </div>
 
         <p className="mx-auto mt-16 max-w-2xl text-center font-serif text-xl italic text-espresso-700/80 text-balance">
-          Cuando te asignen tu asesora, será una de ellas. No un agente más en una larga
-          cadena.
+          Tu especialista no rota. La persona que te toma el caso es la persona que firma
+          contigo.
         </p>
         <p className="text-center text-sm text-espresso-700/60 mt-3">
           Esa es la diferencia entre una mesa institucional y un broker.

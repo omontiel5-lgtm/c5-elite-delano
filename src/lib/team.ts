@@ -83,38 +83,45 @@ export const ADVISORS: TeamMember[] = [
 export const PROCESS_STEPS = [
   {
     number: '01',
-    title: 'Llamada diagnóstica',
-    duration: '15-20 min',
+    title: 'Llamada diagnóstico',
+    duration: '15–20 min',
     description:
-      'Entendemos tu capital, objetivo y horizonte. Te decimos si Delano es el match correcto para ti, o si conviene otro proyecto de nuestro portafolio.',
+      'Evaluamos capital disponible, objetivo de la inversión (flujo, dolarización, apreciación) y horizonte. Si Delano no es el match correcto, te lo decimos directo y proponemos alternativas del portafolio.',
   },
   {
     number: '02',
-    title: 'Selección de unidad',
-    duration: '1-2 semanas',
+    title: 'Videollamada con tu especialista asignado',
+    duration: '20–25 min',
     description:
-      'Te mostramos las unidades disponibles que hacen sentido con tu objetivo. Video tour virtual del proyecto y de la zona si no puedes viajar.',
+      'Marcela, Ana o Giselle revisa contigo proyecciones de renta, calendario de pagos, costos de cierre, estructura legal y comparables del mismo radio. Tu especialista te acompaña hasta entrega — no hay rotación entre 500 agentes.',
   },
   {
     number: '03',
-    title: 'Estructura legal y fiscal',
-    duration: '2-3 semanas',
+    title: 'Selección de unidad',
+    duration: '1–2 semanas',
     description:
-      'Abrimos LLC si aplica. Gestionamos ITIN. Conectamos con abogado y contador especializados en inversionistas extranjeros. Tu compra queda blindada legal y fiscalmente.',
+      'Recibes máximo 2 opciones filtradas a tu perfil: piso, orientación, tipo (estudio / 1BR / 2BR), proyección de ocupación. Tours virtuales en vivo del proyecto y comparativo escrito con las opciones descartadas.',
   },
   {
     number: '04',
-    title: 'Financiamiento o cash',
-    duration: '2-6 semanas si aplica',
+    title: 'Estructura legal y fiscal',
+    duration: '2–3 semanas',
     description:
-      'Foreign National Loan pre-aprobado o cierre en cash. Te conectamos con 3-4 prestamistas aliados que dan financiamiento a inversionistas internacionales sin necesidad de residencia.',
+      'Conectamos abogado y contador especializados en compradores extranjeros: formación de LLC, ITIN, trust si aplica, planificación fiscal cross-border. Costo estimado: USD $2,500–$4,500 por estructura completa.',
   },
   {
     number: '05',
-    title: 'Cierre + activación',
-    duration: 'Continuo hasta entrega',
+    title: 'Financiación o cash',
+    duration: '2–6 semanas (si aplica)',
     description:
-      'Firma con poder notarial desde tu país. Property manager activa la unidad para renta una vez entregada. Soporte continuo durante toda la construcción (2030-2031).',
+      'Si vas con Foreign National Loan: te conectamos con 3–4 bancos que prestan a no residentes con 30–35% inicial. Si vas cash: saltamos este paso y vamos a closing directo.',
+  },
+  {
+    number: '06',
+    title: 'Cierre + activación',
+    duration: 'Continúa hasta entrega 2030–2031',
+    description:
+      'Firmas el cierre con poder notarial desde tu país, sin necesidad de viajar. Property manager activa la unidad una vez entregada y te conectamos con el portal de gestión. Soporte continuo durante toda la construcción.',
   },
 ];
 
@@ -235,10 +242,10 @@ export const CULTURE_SPEAKERS: Speaker[] = [
     imageAlt: 'Ismael Cala',
   },
   {
-    name: 'Andrew Bustamante',
-    role: 'Ex-oficial CIA · fundador de EverydaySpy',
-    imageSrc: '/images/andrew-bustamante.jpg',
-    imageAlt: 'Andrew Bustamante',
+    name: 'Maickel Melamed',
+    role: 'Conferencista venezolano · maratones NY, Berlín, Chicago y Boston',
+    imageSrc: '/images/speaker-maickel-melamed.jpg',
+    imageAlt: 'Maickel Melamed',
   },
 ];
 
