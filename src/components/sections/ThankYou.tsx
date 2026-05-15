@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button';
 import { BRAND } from '@/lib/constants';
 
 const GUIDE_DOWNLOAD_URL =
-  'https://drive.google.com/drive/folders/1ZOwxMDYI6Ui-gYmVLytv18S4QwSz3Xhs';
+  'https://drive.google.com/file/d/1SrBX8h0LAEhRjKZenYFQ-i-tg0x-wUaO/view';
 
 interface ThankYouProps {
   title: string;
